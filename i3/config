@@ -149,8 +149,9 @@
   }
 
 #Background
-exec_always feh --bg-scale /home/sander/Pictures/bg2.jpg
+exec_always feh --bg-fill /home/sander/Pictures/Wallpaper/1455596910648.jpg
 
 #Programs
 exec_always compton -f
 exec --no-startup-id nm-applet
+exec --no-startup-id setxkbmap us,ee -option 'grp:alt_shift_toggle'
