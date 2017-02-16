@@ -18,9 +18,9 @@
   set $base0E #c0b7f9
   set $base0F #fcc09e
 
-  set $workspace1 
-  set $workspace2 
-  set $workspace3 
+  set $workspace1 一
+  set $workspace2 二
+  set $workspace3 三
   set $workspace4 四
   set $workspace5 五
   set $workspace6 六
@@ -31,7 +31,7 @@
 
 
 # General Configuration
-  font pango:System San Francisco Display 10
+  font pango:Hack 10
   floating_modifier $mod
   hide_edge_borders both
 
@@ -59,16 +59,11 @@
     bindsym Escape mode "default"
   }
 
-# change container layout (stacked, tabbed, toggle split)
-  bindsym $mod+s layout stacking
-  bindsym $mod+w layout tabbed
-
 # Restart-Related Bindings
   bindsym $mod+Shift+c reload
   bindsym $mod+Shift+r restart
 
 # Program-Related Bindings
-  #bindsym $mod+Shift+f exec firefox
   bindsym $mod+Return exec i3-sensible-terminal
   bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 500 - padding 800 -opacity "85" -bw 0 -bc "$base01" -bg "$base01" -fg "$base07" -hlbg "$base01" -hlfg "#0575cd" -font "System San Francsicso Display 18"
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -90,6 +85,7 @@
   bindsym XF86AudioPause exec playerctl pause
   bindsym XF86AudioNext exec playerctl next
   bindsym XF86AudioPrev exec playerctl previous
+
 # Workspace-Related Bindings
   bindsym $mod+1 workspace number 1 $workspace1
   bindsym $mod+2 workspace number 2 $workspace2
@@ -114,9 +110,8 @@
   bindsym $mod+Shift+0 move container to workspace number 10 $workspace10
 
 # Program Workspaces
-  assign [class="Firefox"] 1 $workspace1
-  assign [class="Steam"] 3 $workspace3
-  assign [class="Spotify"] $workspace10
+  #assign [class="Firefox"] 1 $workspace1
+  #assign [class="Steam"] 3 $workspace3
 
 # Floating
   for_window [class="Lxappearance"] floating enable
@@ -148,10 +143,15 @@
     }
   }
 
-#Background
-exec_always feh --bg-fill /home/sander/Pictures/Wallpaper/1455596910648.jpg
+# Background
+  exec_always feh --bg-fill /home/sndr/Pictures/wp2.jpg
 
-#Programs
-exec_always compton -f
-exec --no-startup-id nm-applet
-exec --no-startup-id setxkbmap us,ee -option 'grp:alt_shift_toggle'
+# Programs
+  exec_always compton -f
+  exec --no-startup-id nm-applet
+  exec --no-startup-id setxkbmap us,ee -option 'grp:alt_shift_toggle'
+
+# gaps settings
+  for_window [class="^.*"] border pixel 0
+  gaps inner 5
+  gaps outer 10
